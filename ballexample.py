@@ -12,16 +12,16 @@ score = 0
 screen = pygame.display.set_mode(size)
 
 #Load in ball image
-#ball = pygame.image.load("intro_ball.png")
+ball = pygame.image.load("intro_ball.png")
 #Make ball a 'rect' object --> 'https://www.pygame.org/docs/ref/rect.html#pygame.Rect'
-#ballrect = ball.get_rect()
+ballrect = ball.get_rect()
 
 #While True = True i.e. when program is running
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
-    ballrect = pygame.draw.circle(screen, white, (160, 120), 20, 0)
+    #ballrect = pygame.draw.circle(screen, white, (160, 120), 20, 0)
 
     ballrect = ballrect.move(speed)
 
@@ -30,7 +30,7 @@ while 1:
         #Direction of speed is set to the opposite direction
         speed[0] = -speed[0]
         #'Collision' counter is incremented
-        score += + 1
+        score += 1
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = -speed[1]
         score += 1
@@ -42,7 +42,7 @@ while 1:
 
     screen.fill(black)
     #screen.blit --> 'https://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit'
-    #screen.blit(ball, ballrect)
+    screen.blit(ball, ballrect)
     screen.blit(fps, (20, 10))
     screen.blit(scoretext, (260, 200))
     #pygame.display.flip() --> 'https://stackoverflow.com/questions/29314987/difference-between-pygame-display-update-and-pygame-display-flip'

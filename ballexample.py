@@ -11,10 +11,10 @@ score = 0
 
 screen = pygame.display.set_mode(size)
 
-#Load in ball image
-ball = pygame.image.load("intro_ball.png")
-#Make ball a 'rect' object --> 'https://www.pygame.org/docs/ref/rect.html#pygame.Rect'
-ballrect = ball.get_rect()
+#A transparent surface with per-pixel alpha
+ball = pygame.Surface((60, 60), pygame.SRCALPHA)
+#Draw the ball on the 'ball' surface --> 'https://stackoverflow.com/questions/44471789/python-typeerror-argument-1-must-be-pygame-surface-not-pygame-rect'
+ballrect = pygame.draw.circle(ball, [255, 255, 255], [30, 30], 20)
 
 #While True = True i.e. when program is running
 while 1:
